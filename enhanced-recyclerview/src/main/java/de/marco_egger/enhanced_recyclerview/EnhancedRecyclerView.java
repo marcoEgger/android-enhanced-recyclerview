@@ -6,7 +6,6 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -101,7 +100,6 @@ public class EnhancedRecyclerView extends RecyclerView {
 
     private synchronized void updateUi() {
         if (loading.get()) {
-            Log.d("ERV", "loading");
             showViewState(VIEW_STATE_LOADING);
         } else if (isEmpty()) {
             showViewState(VIEW_STATE_EMPTY);
