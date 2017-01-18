@@ -6,7 +6,10 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
+
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Enhanced {@link RecyclerView} that provides methods for an empty or a loading view. An empty view will be
@@ -32,7 +35,7 @@ public class EnhancedRecyclerView extends RecyclerView {
     private View emptyView;
 
     // Some state variables
-    private boolean loading = false;
+    private final AtomicBoolean loading = new AtomicBoolean(false);
     // Observer for data-set changes
     final private AdapterDataObserver observer = new AdapterDataObserver() {
         @Override
@@ -96,8 +99,9 @@ public class EnhancedRecyclerView extends RecyclerView {
         updateUi();
     }
 
-    private void updateUi() {
-        if (loading) {
+    private synchronized void updateUi() {
+        if (loading.get()) {
+            Log.d("ERV", "loading");
             showViewState(VIEW_STATE_LOADING);
         } else if (isEmpty()) {
             showViewState(VIEW_STATE_EMPTY);
@@ -114,7 +118,7 @@ public class EnhancedRecyclerView extends RecyclerView {
      * @see #VIEW_STATE_LOADING
      * @see #VIEW_STATE_LIST
      */
-    private void showViewState(int viewState) {
+    private synchronized void showViewState(int viewState) {
         switch (viewState) {
             case VIEW_STATE_EMPTY:
                 showListView(false);
@@ -136,7 +140,7 @@ public class EnhancedRecyclerView extends RecyclerView {
         }
     }
 
-    private void showListView(final boolean show) {
+    private synchronized void showListView(final boolean show) {
         setVisibility(show ? VISIBLE : GONE);
         // Only animate if we're not in the edit mode (in a developer tool)
         if (!isInEditMode()) {
@@ -150,7 +154,7 @@ public class EnhancedRecyclerView extends RecyclerView {
         }
     }
 
-    private void showLoadingView(final boolean show) {
+    private synchronized void showLoadingView(final boolean show) {
         if (loadingView != null) {
             loadingView.setVisibility(show ? View.VISIBLE : View.GONE);
             loadingView.animate().setDuration(ANIMATION_TIME).alpha(
@@ -166,7 +170,7 @@ public class EnhancedRecyclerView extends RecyclerView {
     /**
      * @param show {@code true} if the empty view should be displayed, otherwise {@code false}
      */
-    private void showEmptyView(final boolean show) {
+    private synchronized void showEmptyView(final boolean show) {
         if (emptyView != null) {
             emptyView.setVisibility(show ? View.VISIBLE : View.GONE);
             emptyView.animate().setDuration(ANIMATION_TIME).alpha(
@@ -183,7 +187,7 @@ public class EnhancedRecyclerView extends RecyclerView {
      * @param loadingView set the view that should be displayed as long as loading is set to {@code true}
      * @see #setLoading(boolean)
      */
-    public void setLoadingView(View loadingView) {
+    public synchronized void setLoadingView(@Nullable View loadingView) {
         this.loadingView = loadingView;
         updateUi();
     }
@@ -192,7 +196,7 @@ public class EnhancedRecyclerView extends RecyclerView {
      * @param emptyView the view that should be displayed if the data set is empty and the list is not set to loading
      * @see #setLoading(boolean)
      */
-    public void setEmptyView(View emptyView) {
+    public synchronized void setEmptyView(@Nullable View emptyView) {
         this.emptyView = emptyView;
         updateUi();
     }
@@ -201,15 +205,15 @@ public class EnhancedRecyclerView extends RecyclerView {
      * @param loading {@code true} if loading view should be displayed, otherwise {@code false}
      * @see #setLoadingView(View)
      */
-    public void setLoading(boolean loading) {
-        this.loading = loading;
+    public synchronized void setLoading(boolean loading) {
+        this.loading.set(loading);
         updateUi();
     }
 
     /**
      * @return {@code true} if adapter's data set is empty or no adapter is available, otherwise {@code false}
      */
-    private boolean isEmpty() {
+    private synchronized boolean isEmpty() {
         return getAdapter() == null || getAdapter().getItemCount() == 0;
     }
 }

@@ -9,6 +9,9 @@ import android.view.View;
  */
 public class EnhancedViewHolder<T> extends RecyclerView.ViewHolder {
 
+    /**
+     * This reference can be used when an on click listener is set in the constructor of the subclassing view holder.
+     */
     protected T item;
 
     public EnhancedViewHolder(View itemView) {

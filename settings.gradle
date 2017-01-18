@@ -1,1 +1,1 @@
-include ':example', ':enhanced-recyclerview'
+include ':example-enhanced-recyclerview', ':enhanced-recyclerview'

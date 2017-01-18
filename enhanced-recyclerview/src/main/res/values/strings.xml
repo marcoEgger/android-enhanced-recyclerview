@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">enhanced-recyclerview</string>
+    <string name="empty_text">There are no tasks!</string>
 </resources>
