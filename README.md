@@ -44,8 +44,7 @@ Nothing has to be done, it will be shown when no adapter is set or when the item
 Have a look at the full
 [example](https://github.com/marcoEgger/android-enhanced-recyclerview/tree/master/example-enhanced-recyclerview)
 of the ```EnhancedRecyclerView``` in conjunction with the ```EnhancedRecyclerViewAdapter``` and
-```EnhancedViewHolder```. Note that the ```EnhancedRecyclerView``` can be used **without** any other component
-by this class!
+```EnhancedViewHolder```. Note that the ```EnhancedRecyclerView``` can be used **without** any other component of this library!
 
 ## Usage EnhancedRecyclerViewAdapter
 **Note:** For now the EnhancedRecyclerViewAdapter only supports a single ViewHolder type, so if you want to have a list
