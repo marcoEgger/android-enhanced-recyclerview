@@ -1,5 +1,29 @@
 apply plugin: 'com.android.library'
 
+ext {
+    bintrayRepo = 'android'
+    bintrayName = 'enhanced-recyclerview'
+
+    publishedGroupId = 'de.marco-egger'
+    libraryName = 'enhanced-recyclerview'
+    artifact = 'enhanced-recyclerview'
+
+    libraryDescription = 'This library provides an enhanced RecyclerView and other useful tools for lists.'
+
+    siteUrl = 'https://github.com/marcoEgger/android-mvp-loader'
+    gitUrl = 'https://github.com/marcoEgger/android-mvp-loader.git'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'marcoegger'
+    developerName = 'Marco Egger'
+    developerEmail = 'marco.egger.me@gmail.com'
+
+    licenseName = 'MIT License'
+    licenseUrl = 'https://github.com/marcoEgger/android-enhanced-recyclerview/blob/master/LICENSE'
+    allLicenses = ["MIT"]
+}
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -8,7 +32,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 25
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -23,9 +47,9 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:25.1.0'
-    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:recyclerview-v7:25.1.0'
 }
+
+// Place it at the end of the file
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
