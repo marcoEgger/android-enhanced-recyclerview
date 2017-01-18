@@ -10,8 +10,8 @@ ext {
 
     libraryDescription = 'This library provides an enhanced RecyclerView and other useful tools for lists.'
 
-    siteUrl = 'https://github.com/marcoEgger/android-mvp-loader'
-    gitUrl = 'https://github.com/marcoEgger/android-mvp-loader.git'
+    siteUrl = 'https://github.com/marcoEgger/android-enhanced-recyclerview'
+    gitUrl = 'https://github.com/marcoEgger/android-enhanced-recyclerview.git'
 
     libraryVersion = '1.0.0'
 

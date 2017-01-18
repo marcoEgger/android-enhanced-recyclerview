@@ -10,10 +10,9 @@ import android.view.ViewGroup;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * This adapter provides an easy to use endless list feature for any {@link RecyclerView}.
+ * This adapter provides an easy to use endless list feature for any RecyclerView.
  * Just use your usual adapter and pass it to this class' constructor. Setup the {@link EndlessScrollEventListener}
- * to listen for loading events. Do <b>NOT</b> use 9999 as return value for
- * {@link android.support.v7.widget.RecyclerView.Adapter#getItemViewType(int)}!
+ * to listen for loading events. Do <b>NOT</b> use 9999 as return value for the item view type.
  *
  * @author Marco Egger
  */

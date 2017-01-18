@@ -11,13 +11,12 @@ import android.view.View;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * Enhanced {@link RecyclerView} that provides methods for an empty or a loading view. An empty view will be
+ * Enhanced RecyclerView that provides methods for an empty or a loading view. An empty view will be
  * shown automatically (when set) if there is no adapter set or no items retrieved by the adapter. The loading view
  * can be displayed with {@link #setLoading(boolean)}. If set to loading, the adapter's data set can be empty,
  * with the empty view not being shown.
  *
  * @author Marco Egger
- * @see RecyclerView
  */
 public class EnhancedRecyclerView extends RecyclerView {
 
