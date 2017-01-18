@@ -14,7 +14,7 @@ compile 'de.marco-egger:enhanced-recyclerview:1.0.0'
 ## Usage Enhanced-RecyclerView
 
 ### Layout file
-```
+```xml
     <de.marco_egger.enhanced_recyclerview.EnhancedRecyclerView
         android:id="@+id/list"
         android:layout_width="match_parent"
@@ -46,7 +46,7 @@ Have a look at the full [example](https://github.com/marcoEgger/android-enhanced
 ## Usage EndlessRecyclerViewAdapter
 
 ### When you create your standard adapter
-```
+```java
 RecyclerView.Adapter myAdapter = new MyAdapter();
 EndlessRecyclerViewAdapter endlessAdapter = new EndlessRecyclerViewAdapter(myAdapter, myLayourResId
         new EndlessRecyclerViewAdapter.EndlessScrollEventListener() {
