@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
 
                 for (int i = 1; i <= 20; i++) {
-                    adapter.addTask(new Task("Task No. " + i));
+                    adapter.addItemNotified(new Task("Task No. " + i));
                 }
 
                 // Add a little time delay to show the loading view

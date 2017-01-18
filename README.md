@@ -11,7 +11,7 @@ and ```StaggeredGridLayoutManager```).
 compile 'de.marco-egger:enhanced-recyclerview:1.0.0'
 ```
 
-## Usage Enhanced-RecyclerView
+## Usage EnhancedRecyclerView
 
 ### Layout file
 ```xml
@@ -41,7 +41,23 @@ list.setLoading(true);
 Nothing has to be done, it will be shown when no adapter is set or when the item count is 0.
 
 ### Example
-Have a look at the full [example](https://github.com/marcoEgger/android-enhanced-recyclerview/tree/master/example-enhanced-recyclerview) of the EnhancedRecyclerView
+Have a look at the full
+[example](https://github.com/marcoEgger/android-enhanced-recyclerview/tree/master/example-enhanced-recyclerview)
+of the ```EnhancedRecyclerView``` in conjunction with the ```EnhancedRecyclerViewAdapter``` and
+```EnhancedViewHolder```. Note that the ```EnhancedRecyclerView``` can be used **without** any other component
+by this class!
+
+## Usage EnhancedRecyclerViewAdapter
+Let your adapter extend the EnhancedRecyclerViewAdapter:
+```java
+public class TasksAdapter extends EnhancedRecyclerViewAdater<MyDataClass, MyViewHolder>
+```
+Note that ```MyViewHolder``` has to extend the ```EnhancedViewHolder``` class provided by this library.
+
+### Example
+Have a look at the full
+[example](https://github.com/marcoEgger/android-enhanced-recyclerview/tree/master/example-enhanced-recyclerview)
+of the EnhancedRecyclerView in conjunction with the EnhancedRecyclerViewAdapter and EnhancedViewHolder.
 
 ## Usage EndlessRecyclerViewAdapter
 

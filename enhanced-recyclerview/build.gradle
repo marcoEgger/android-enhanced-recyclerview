@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/marcoEgger/android-enhanced-recyclerview'
     gitUrl = 'https://github.com/marcoEgger/android-enhanced-recyclerview.git'
 
-    libraryVersion = '1.0.0'
+    libraryVersion = '1.1.0'
 
     developerId = 'marcoegger'
     developerName = 'Marco Egger'
@@ -32,7 +32,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 25
         versionCode 1
-        versionName "1.0.0"
+        versionName "1.1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
