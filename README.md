@@ -8,7 +8,7 @@ and ```StaggeredGridLayoutManager```).
 
 ## Dependency
 ```gradle
-compile 'de.marco-egger:enhanced-recyclerview:1.1.0'
+compile 'de.marco-egger:enhanced-recyclerview:1.2.0'
 ```
 
 ## Usage EnhancedRecyclerView
@@ -47,10 +47,9 @@ of the ```EnhancedRecyclerView``` in conjunction with the ```EnhancedRecyclerVie
 ```EnhancedViewHolder```. Note that the ```EnhancedRecyclerView``` can be used **without** any other component of this library!
 
 ## Usage EnhancedRecyclerViewAdapter
-**Note:** For now the EnhancedRecyclerViewAdapter only supports a single ViewHolder type, so if you want to have a list
-with different views for different items you have to use the standard RecyclerView.Adapter.
 
-Let your adapter extend the EnhancedRecyclerViewAdapter:
+Let your adapter extend the EnhancedRecyclerViewAdapter and implement the abstract methods (see example for further)
+details.
 ```java
 public class TasksAdapter extends EnhancedRecyclerViewAdapter<MyDataClass, MyViewHolder>
 ```

@@ -24,8 +24,8 @@ public abstract class EnhancedRecyclerViewAdapter<D, H extends EnhancedViewHolde
 
     @Override
     public H onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(getItemLayout(), parent, false);
-        return createNewViewHolder(v);
+        View v = LayoutInflater.from(parent.getContext()).inflate(getItemLayout(viewType), parent, false);
+        return createNewViewHolder(v, viewType);
     }
 
     @Override
@@ -71,12 +71,12 @@ public abstract class EnhancedRecyclerViewAdapter<D, H extends EnhancedViewHolde
      * @return the layout resource id of the view that should be inflated
      */
     @LayoutRes
-    protected abstract int getItemLayout();
+    protected abstract int getItemLayout(int viewType);
 
     /**
      * @param v the inflated view
      * @return the new ViewHolder
      */
     @NonNull
-    protected abstract H createNewViewHolder(@NonNull View v);
+    protected abstract H createNewViewHolder(@NonNull View v, int viewType);
 }

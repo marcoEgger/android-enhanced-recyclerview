@@ -13,13 +13,13 @@ import de.marco_egger.enhancedrecyclerview.model.Task;
 public class TasksAdapter extends EnhancedRecyclerViewAdapter<Task, TasksAdapter.ViewHolder> {
 
     @Override
-    protected int getItemLayout() {
+    protected int getItemLayout(int viewType) {
         return android.R.layout.simple_list_item_1;
     }
 
     @NonNull
     @Override
-    protected ViewHolder createNewViewHolder(@NonNull View v) {
+    protected ViewHolder createNewViewHolder(@NonNull View v, int viewType) {
         return new ViewHolder(v);
     }
 
